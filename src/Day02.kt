@@ -7,12 +7,16 @@ fun main() {
             val cmdAndAmount = it.trim().split(" ")
             val cmd = cmdAndAmount[0]
             val amt = cmdAndAmount[1].toInt()
-            if (cmd == "forward") {
-                hpos += amt
-            } else if (cmd == "down") {
-                depth += amt
-            } else {
-                depth -= amt
+            when (cmd) {
+                "forward" -> {
+                    hpos += amt
+                }
+                "down" -> {
+                    depth += amt
+                }
+                else -> {
+                    depth -= amt
+                }
             }
         }
         return hpos * depth
@@ -26,13 +30,17 @@ fun main() {
             val cmdAndAmount = it.trim().split(" ")
             val cmd = cmdAndAmount[0]
             val amt = cmdAndAmount[1].toInt()
-            if (cmd == "forward") {
-                hpos += amt
-                depth += aim * amt
-            } else if (cmd == "down") {
-                aim += amt
-            } else {
-                aim -= amt
+            when (cmd) {
+                "forward" -> {
+                    hpos += amt
+                    depth += aim * amt
+                }
+                "down" -> {
+                    aim += amt
+                }
+                else -> {
+                    aim -= amt
+                }
             }
         }
         return hpos * depth
